@@ -1,0 +1,10 @@
+.main {
+	padding-top: 50px;
+}
+
+.loginform {
+	display: flex;
+    flex-direction: column;
+    margin: 0px auto 24px;
+    width: 304px;
+}

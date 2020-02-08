@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- <property name="hibernate.connection.driver_class">org.postgresql.Driver</property> 
+			<property name="hibernate.connection.url">jdbc:postgresql://DESKTOP-3DQAIHJ:5432/petrovnadb</property> 
+			<property name="hibernate.connection.username">alkash</property> <property 
+			name="hibernate.connection.password">Qwerty1-</property> <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property> -->
+
+		<property name="hibernate.connection.driver_class">org.mariadb.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mariadb://localhost:3306/svetadb</property>
+		<property name="hibernate.connection.username">muxamed</property>
+		<property name="hibernate.connection.password">Qwerty1-</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</property>
+
+		<property name="hibernate.connection.CharSet">utf8</property>
+		<property name="hibernate.connection.characterEncoding">utf8</property>
+		<property name="hibernate.connection.useUnicode">true</property>
+
+		<!-- Print executed SQL to stdout -->
+		<property name="show_sql">true</property>
+
+		<!-- Створення нової таблиці -->
+		<property name="hbm2ddl.auto">create</property>
+
+
+	</session-factory>
+
+</hibernate-configuration>
