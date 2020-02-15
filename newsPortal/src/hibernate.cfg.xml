@@ -24,8 +24,10 @@
 		<property name="show_sql">true</property>
 
 		<!-- Створення нової таблиці -->
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 
+		<!-- Annotated entity classes -->
+		<mapping class="entities.Category" />
 
 	</session-factory>
 
