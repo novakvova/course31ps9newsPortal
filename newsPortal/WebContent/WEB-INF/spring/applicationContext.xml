@@ -42,12 +42,12 @@
 		class="services.AuthService">
 		<constructor-arg name="sessionFactory" ref="sessionFactoryBean" />
 	</bean>
-<!--
+
 	<bean id="authenticationProviderBean"
-		class="car.show.room.service.CustomAuthenticationProvider">
+		class="services.CustomAuthenticationProvider">
 		<constructor-arg index="0" ref="sessionFactoryBean"/>
 	</bean>
-
+<!--
 	<bean id="passwordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
 		<constructor-arg value="11" />
