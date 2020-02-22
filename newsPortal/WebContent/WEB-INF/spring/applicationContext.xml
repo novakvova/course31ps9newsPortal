@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- Configuring the JDBC connection -->
+	<bean id="dataSourceBean"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName"
+			value="org.mariadb.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:mariadb://localhost:3306/svetadb" />
+		<property name="username" value="muxamed" />
+		<property name="password" value="Qwerty1-" />
+	</bean>
+
+	<!-- Configuring the Hibernate4 Session Factory Bean -->
+	<bean id="sessionFactoryBean"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceBean" />
+		<!-- <property name="mappingResources"> <value>car/show/room/pojo/User.hbm.xml</value> 
+			</property> -->
+		<property name="annotatedClasses">
+			<list>
+				<value>entities.Category</value>
+
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MariaDBDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- <bean id="hibernateTemplateBean" class="org.springframework.orm.hibernate5.HibernateTemplate"> 
+		<property name="sessionFactory" ref="sessionFactoryBean" /> </bean> -->
+
+ 
+	<bean id="authenticateServiceBean"
+		class="services.AuthService">
+		<constructor-arg name="sessionFactory" ref="sessionFactoryBean" />
+	</bean>
+<!--
+	<bean id="authenticationProviderBean"
+		class="car.show.room.service.CustomAuthenticationProvider">
+		<constructor-arg index="0" ref="sessionFactoryBean"/>
+	</bean>
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+		<constructor-arg value="11" />
+	</bean>
+ -->
+
+</beans>
