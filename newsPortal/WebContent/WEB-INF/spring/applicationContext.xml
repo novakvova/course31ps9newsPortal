@@ -22,7 +22,7 @@
 		<property name="annotatedClasses">
 			<list>
 				<value>entities.Category</value>
-
+				<value>entities.Post</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -37,21 +37,17 @@
 	<!-- <bean id="hibernateTemplateBean" class="org.springframework.orm.hibernate5.HibernateTemplate"> 
 		<property name="sessionFactory" ref="sessionFactoryBean" /> </bean> -->
 
- 
-	<bean id="authenticateServiceBean"
-		class="services.AuthService">
-		<constructor-arg name="sessionFactory" ref="sessionFactoryBean" />
+
+	<bean id="authenticateServiceBean" class="services.AuthService">
+		<constructor-arg name="sessionFactory"
+			ref="sessionFactoryBean" />
 	</bean>
 
 	<bean id="authenticationProviderBean"
 		class="services.CustomAuthenticationProvider">
-		<constructor-arg index="0" ref="sessionFactoryBean"/>
+		<constructor-arg index="0" ref="sessionFactoryBean" />
 	</bean>
-<!--
-	<bean id="passwordEncoder"
-		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-		<constructor-arg value="11" />
-	</bean>
- -->
+	<!-- <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"> 
+		<constructor-arg value="11" /> </bean> -->
 
 </beans>

@@ -1,9 +1,13 @@
 package entities;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +27,9 @@ public class Category {
 	@Column(name = "description", length = 4000)
     private String description;
 	
+	@OneToMany
+    @JoinColumn(name = "category_id") // we need to duplicate the physical information
+    private Set<Post> posts;
 	
 
 	public Category() {
@@ -66,4 +73,11 @@ public class Category {
 		this.description = description;
 	}
 	
+	public Set<Post> getPosts() {
+		return posts;
+	}
+
+	public void setPosts(Set<Post> posts) {
+		this.posts = posts;
+	}
 }

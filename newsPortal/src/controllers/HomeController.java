@@ -16,9 +16,7 @@ public class HomeController {
 	public String index() {
 		
 		this.authService.Test();
-		
-		
-		
+				
 		return "home";
 	}
 
