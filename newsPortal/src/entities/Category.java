@@ -80,4 +80,12 @@ public class Category {
 	public void setPosts(Set<Post> posts) {
 		this.posts = posts;
 	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", urlSlug=" + urlSlug + ", description=" + description
+				+ ", posts=" + posts + "]";
+	}
+	
+	
 }

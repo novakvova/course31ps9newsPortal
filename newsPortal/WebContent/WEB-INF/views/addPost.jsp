@@ -15,45 +15,44 @@
 	<main class="main">
 		<div class="container">
 			<h1 class="d-flex justify-content-center">Додати пост</h1>
-			<form:form name="form" action="login" method="post" modelAttribute="add">
+			<form:form name="form" action="addPost" method="post" modelAttribute="postDTO">
 				<div class="form-group">
 					<label for="title">Заголовок</label>
-					<input type="text" class="form-control" id="title">
+					<form:input path="title" type="text" class="form-control" id="title"/>
 				</div>
 				<div class="form-group">
 					<label for="shortDescription">Короткий опис</label>
-<!-- 					<textarea class="form-control" id="shortDescription"></textarea> -->
-					<textarea id="edit" class="editorFroala" name="content"></textarea>
+<!-- 					<textarea id="edit" class="editorFroala" name="content"></textarea> -->
+					<form:textarea path="shortDescription" name="content" class="editorFroala" id="shortDescription"/>
 				</div>
 				<div class="form-group">
 					<label for="description">Повний опис</label>
-<!-- 					<textarea class="form-control" id="description"></textarea> -->
-					<textarea id="edit" class="editorFroala" name="content"></textarea>
+<!-- 					<textarea id="edit" class="editorFroala" name="content"></textarea> -->
+					<form:textarea path="description" name="content" class="editorFroala" id="description"/>
 				</div>
 				<div class="form-group">
 					<label for="meta">Мета</label>
-					<input type="text" class="form-control" id="meta">
+					<form:input path="meta" type="text" class="form-control" id="meta"/>
 				</div>
 				<div class="form-group">
 					<label for="urlSlug">URL slug</label>
-					<input type="text" class="form-control" id="urlSlug">
+					<form:input path="urlSlug" type="text" class="form-control" id="urlSlug"/>
 				</div>
 				<div class="form-group">
 					<label for="postedOn">Дата публікації</label>
-					<input type="date" class="form-control" id="postedOn">
+					<form:input path="postedOn" type="date" class="form-control" id="postedOn"/>
 				</div>
 				<div class="form-group">
 					<label for="category">Виберіть категорію</label>
-					<select	class="form-control" id="category">
-
-						<c:forEach var="category" items="${add.categories}">
+					<form:select path="category_id" class="form-control" id="category_id">
+						<c:forEach var="category" items="${postDTO.categories}">
 							<option value="${category.value}">${category.text}</option>
 						</c:forEach>
-					</select>
+					</form:select>
 				</div>
 				<br>
 				<div class="form-check">
-					<input type="checkbox" class="form-check-input" id="published">
+					<form:checkbox path="published" class="form-check-label" id="published"/>
 					<label class="form-check-label" for="published">Показати на сайті</label>
 				</div>
 				<br>
