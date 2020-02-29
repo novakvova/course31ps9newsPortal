@@ -36,8 +36,8 @@
 						<td>${post.urlSlug}</td>
 						<td>${post.published}</td>
 						
-<%-- 						<td><a href="editpost/${post.id}">Edit</a></td>
-						<td><a href="deletepost/${post.id}">Delete</a></td> --%>
+						<td><a href="editPost/${post.id}">Edit</a></td>
+						<td><a href="deletepost/${post.id}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</table>
