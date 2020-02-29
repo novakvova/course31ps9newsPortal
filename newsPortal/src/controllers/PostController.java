@@ -79,8 +79,17 @@ public class PostController {
 	
 	@RequestMapping("/post")
 	public String post(Model model) {
-		PostDTO addModel = new PostDTO();
-		model.addAttribute("postDTO", addModel);
+		List<PostDTO> posts = new ArrayList<PostDTO>();
+		List<Post> g = postService.GetAll();
+		for (Post p : g) {
+			PostDTO t = new PostDTO();
+			t.setId(p.getId());
+			t.setTitle(p.getTitle());
+			t.setShortDescription(p.getShortDescription());
+			
+			posts.add(t);
+		}
+		model.addAttribute("posts", posts);
 		return "post";
 	}
 }
